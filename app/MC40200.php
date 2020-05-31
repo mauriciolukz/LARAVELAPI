@@ -20,24 +20,10 @@ class MC40200 extends Model
 
     protected $primaryKey = 'DEX_ROW_ID';
 
-    public $CURNCYID;
-
     /**
      * @OA\Property(
      *      title="CURNCYID",
      *      description="Id de moneda",
-     *      example="This is new project's description"
-     * )
-     *
-     * @var integer
-     */
-
-    public $CURRNIDX;
-
-    /**
-     * @OA\Property(
-     *      title="CURRNIDX",
-     *      description="indice de moneda",
      *      example="This is new project's description",
      *      format="int64",
      *      example=100
@@ -45,16 +31,23 @@ class MC40200 extends Model
      *
      * @var integer
      */
+    public $CURNCYID;
 
 
      /**
      * @OA\Property(
-     *     title="SY01400",
-     *     description="Project author's user model"
+     *      title="CURRNIDX",
+     *      description="Indice de moneda",
+     *      example="This is new project's description",
+     *      format="int64",
+     *      example=200
      * )
      *
-     * @var \App\Models\SY01400
+     * @var integer
      */
-    private $SY01400;
+
+    public $CURRNIDX;
+
+
     
 }

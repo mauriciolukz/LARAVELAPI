@@ -40,7 +40,14 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "Successful operation"
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/MC40200"
+                                }
+                            }
+                        }
                     },
                     "default": {
                         "description": "Ha ocurrido un error."
@@ -58,22 +65,19 @@
                 "title": "MC40200",
                 "description": "Tabla para divisas",
                 "properties": {
-                    "CURRNIDX": {
+                    "CURNCYID": {
                         "title": "CURNCYID",
                         "description": "Id de moneda",
-                        "type": "integer",
-                        "example": "This is new project's description"
-                    },
-                    "": {
-                        "title": "CURRNIDX",
-                        "description": "indice de moneda",
                         "type": "integer",
                         "format": "int64",
                         "example": 100
                     },
-                    "SY01400": {
-                        "title": "SY01400",
-                        "description": "Project author's user model"
+                    "CURRNIDX": {
+                        "title": "CURRNIDX",
+                        "description": "Indice de moneda",
+                        "type": "integer",
+                        "format": "int64",
+                        "example": 200
                     }
                 },
                 "type": "object",

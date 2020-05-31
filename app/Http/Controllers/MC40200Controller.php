@@ -25,6 +25,7 @@ class MC40200Controller extends Controller
     *     @OA\Response(
     *         response=200,
     *         description="Successful operation",
+    *         @OA\JsonContent(ref="#/components/schemas/MC40200")
     *     ),
     *     @OA\Response(
     *         response="default",
