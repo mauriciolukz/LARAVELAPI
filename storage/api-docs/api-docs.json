@@ -1,0 +1,92 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Laravel API for ERPHeydude",
+        "description": "L5 Swagger OpenApi description",
+        "contact": {
+            "email": "mauriciopalacio1990@gmail.com"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        },
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:8000/api",
+            "description": "API Server"
+        }
+    ],
+    "paths": {
+        "/MC40200/getCurrencyById/{id}": {
+            "get": {
+                "tags": [
+                    "API PARA MONEDA"
+                ],
+                "summary": "Mostrar la moneda buscada por id.",
+                "description": "Returns project data",
+                "operationId": "App\\Http\\Controllers\\MC40200Controller::getCurrencyById",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Divisa Id",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "default": {
+                        "description": "Ha ocurrido un error."
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "MC40200": {
+                "title": "MC40200",
+                "description": "Tabla para divisas",
+                "properties": {
+                    "CURRNIDX": {
+                        "title": "CURNCYID",
+                        "description": "Id de moneda",
+                        "type": "integer",
+                        "example": "This is new project's description"
+                    },
+                    "": {
+                        "title": "CURRNIDX",
+                        "description": "indice de moneda",
+                        "type": "integer",
+                        "format": "int64",
+                        "example": 100
+                    },
+                    "SY01400": {
+                        "title": "SY01400",
+                        "description": "Project author's user model"
+                    }
+                },
+                "type": "object",
+                "xml": {
+                    "name": "MC40200"
+                }
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "API LARAVEL",
+            "description": "API Endpoints of Projects"
+        }
+    ]
+}
