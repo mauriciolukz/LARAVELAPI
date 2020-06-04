@@ -39,8 +39,8 @@ class MC40200Controller extends Controller
     */
 
     public function getCurrencyById(Request $request,$id){
-        $MC40200 = \DB::select(\DB::raw("exec DYNAMICS.dbo.zDP_MC40200SS_1 '".$id."'"));
-        //$MC40200 = MC40200::where('CURNCYID', $id)->first();
+        //$MC40200 = \DB::select(\DB::raw("exec DYNAMICS.dbo.zDP_MC40200SS_1 '".$id."'"));
+        $MC40200 = MC40200::where('CURNCYID', $id)->first();
 
         if (!$MC40200) {
             return response()->json(['success'=>false, 'message' => 'Moneda no registrada, por favor verifique.'], 401);
