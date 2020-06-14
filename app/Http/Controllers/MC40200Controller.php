@@ -43,9 +43,37 @@ class MC40200Controller extends Controller
         $MC40200 = MC40200::where('CURNCYID', $id)->first();
 
         if (!$MC40200) {
-            return response()->json(['success'=>false, 'message' => 'Moneda no registrada, por favor verifique.'], 401);
+            return response()->json(['success'=>false, 'message' => 'Moneda no registrada, por favor verifique.'], 404);
         }
 
         return response()->json($MC40200, 200);
     }
+
+    /**
+    * @OA\Post(
+    *     path="/MC40200/addCurrency/{MC40200}",
+    *     tags={"API PARA MONEDA"},
+    *     summary="Agregar moneda.",
+    *     description="Returns project data",
+    *     @OA\Response(
+    *         response=200,
+    *         description="Successful operation",
+    *         @OA\JsonContent(ref="#/components/schemas/MC40200")
+    *     ),
+    *     @OA\RequestBody(
+    *         description="Crear moneda",
+    *         required=true,
+    *         @OA\MediaType(
+    *           mediaType="application/json",
+    *           @OA\Schema(ref="#/components/schemas/MC40200")
+    *         )
+    *     )
+    * )
+    */
+
+    public function addCurrency(Request $request){
+        return response()->json("hola", 200);
+    }
+
+
 }

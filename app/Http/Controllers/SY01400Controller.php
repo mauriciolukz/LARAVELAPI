@@ -72,7 +72,7 @@ class SY01400Controller extends Controller
         $creds = $request->only('email', 'password');
         
         if (!$token = auth()->attempt(['USERID' => $request->email, 'password' => $request->password])) {
-            return response()->json(['success'=>false, 'message' => 'Usuario no registrado, por favor verifique.'], 401);
+            return response()->json(['success'=>false, 'message' => 'Usuario no registrado, por favor verifique.'], 404);
         }
 
         return response()->json([

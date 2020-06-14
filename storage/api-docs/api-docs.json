@@ -57,6 +57,39 @@
                     }
                 }
             }
+        },
+        "/MC40200/addCurrency/{MC40200}": {
+            "post": {
+                "tags": [
+                    "API PARA MONEDA"
+                ],
+                "summary": "Agregar moneda.",
+                "description": "Returns project data",
+                "operationId": "App\\Http\\Controllers\\MC40200Controller::addCurrency",
+                "requestBody": {
+                    "description": "Creacion de moneda",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/MC40200"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/MC40200"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
     },
     "components": {
