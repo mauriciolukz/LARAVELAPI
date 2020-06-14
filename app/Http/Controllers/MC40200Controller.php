@@ -71,8 +71,25 @@ class MC40200Controller extends Controller
     * )
     */
 
-    public function addCurrency(Request $request){
-        return response()->json("hola", 200);
+    public function addCurrency(Request $request,MC40200 $MC40200){
+        
+        $curncyid = $request->curncyid;
+        $crncydsc = $request->crncydsc; //
+        $crncysym = $request->crncysym; //
+        $cysymplc = $request->cysymplc;
+        $inclspac = isset($request->inclspac) ? 1 : 0;
+        $decsymbl = $request->decsymblIndex; //
+        $decplcur = $request->decplcurIndex; //
+        $thossym = $request->thossymIndex;
+        $isocurrc = $request->isocurrc;
+        //return response()->json($curncyid);
+        //$affected = \DB::insert("BEGIN DECLARE @num int EXEC DYNAMICS.dbo.zDP_MC40200SI 'C$$', 1001, 33.00000, 'Moneda cordoba', 'C$$', 0, 1, 1, 0, 1, 1, 0, 0, 3, 5, 4, 'Dólares', 'Centavos', 'Y', 'ISO', 0, @num OUT SELECT @num END ");
+        //$affected = \DB::insert("BEGIN DECLARE @num int EXEC DYNAMICS.dbo.zDP_MC40200SI '${curncyid}', 1001, 33.00000, '${crncydsc}', '${crncysym}', 0, 1, 1, ${cysymplc}, ${inclspac}, 1, 0, 0, ${decsymbl}, ${decplcur}, ${thoussym}, 'Dólares', 'Centavos', 'Y', '${isocurrc}', 0, @num OUT SELECT @num END ");
+        //$affected = \DB::insert('insert into users (id, name) values (?, ?)', [1, 'Dayle']);
+        //if ($affected) {
+            //return response()->json(['success'=>true, 'message' => 'Moneda registrada.'], 201);
+        //}
+        return response()->json($request->all(), 200);
     }
 
 

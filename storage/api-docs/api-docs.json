@@ -67,7 +67,7 @@
                 "description": "Returns project data",
                 "operationId": "App\\Http\\Controllers\\MC40200Controller::addCurrency",
                 "requestBody": {
-                    "description": "Creacion de moneda",
+                    "description": "Crear moneda",
                     "required": true,
                     "content": {
                         "application/json": {

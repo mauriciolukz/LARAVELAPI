@@ -22,7 +22,7 @@ Route::post('SY01400/login/', 'SY01400Controller@login');
 Route::post('SY01400/menu/', 'SY01400Controller@menu_side');
 Route::post('SY01400/menu/cards/', 'SY01400Controller@cards');
 Route::get('MC40200/getCurrencyById/{id}', 'MC40200Controller@getCurrencyById');
-Route::post('MC40200/addCurrency/{MC40200}', 'MC40200Controller@addCurrency');
+Route::post('MC40200/addCurrency/', 'MC40200Controller@addCurrency');
 //Route::resource('MC40200', 'MC40200Controller');
 
 //Route::post('SY01400/menu/cards/{id_card}', 'SY01400Controller@cards');
