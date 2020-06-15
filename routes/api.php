@@ -23,11 +23,8 @@ Route::post('SY01400/menu/', 'SY01400Controller@menu_side');
 Route::post('SY01400/menu/cards/', 'SY01400Controller@cards');
 Route::get('MC40200/getCurrencyById/{id}', 'MC40200Controller@getCurrencyById');
 Route::post('MC40200/addCurrency/', 'MC40200Controller@addCurrency');
-//Route::resource('MC40200', 'MC40200Controller');
+Route::put('MC40200/updateCurrency/', 'MC40200Controller@updateCurrency');
 
-//Route::post('SY01400/menu/cards/{id_card}', 'SY01400Controller@cards');
-
-//Route::resource('SY01400', 'SY01400Controller');
 // Route::get('SY01400/getUserByUserId/{userId}', ['middleware' => 'cors','uses' => 'SY01400Controller@getUserByUserId']);
 
 /* Route::group(['middleware' => 'auth.jwt'], function () {

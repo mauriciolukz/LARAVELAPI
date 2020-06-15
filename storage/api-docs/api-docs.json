@@ -90,6 +90,39 @@
                     }
                 }
             }
+        },
+        "/MC40200/updateCurrency/{MC40200}": {
+            "put": {
+                "tags": [
+                    "API PARA MONEDA"
+                ],
+                "summary": "Modificar moneda.",
+                "description": "Returns project data",
+                "operationId": "App\\Http\\Controllers\\MC40200Controller::updateCurrency",
+                "requestBody": {
+                    "description": "Modificar moneda",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/MC40200"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/MC40200"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
     },
     "components": {
