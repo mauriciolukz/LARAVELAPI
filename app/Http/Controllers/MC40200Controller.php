@@ -143,4 +143,34 @@ class MC40200Controller extends Controller
         }
         
     }
+
+    /**
+    * @OA\Delete(
+    *     path="/MC40200/deleteCurrency/{id}",
+    *     tags={"API PARA MONEDA"},
+    *     summary="Eliminar moneda.",
+    *     description="Returns project data",
+    *     @OA\Response(
+    *         response=200,
+    *         description="Successful operation",
+    *         @OA\JsonContent(ref="#/components/schemas/MC40200")
+    *     ),
+    *       @OA\Parameter(
+    *          name="id",
+    *          description="Divisa Id",
+    *          required=true,
+    *          in="path",
+    *          @OA\Schema(
+    *              type="string"
+    *          )
+    *      ),
+    * )
+    */
+    public function deleteCurrency($id){
+        $affectedRows = MC40200::where('CURNCYID', '=', $id)->delete();
+
+        if ($affected) {
+            return response()->json(['success'=>true, 'message' => 'Moneda eliminada.'], 202);
+        }
+    }
 }

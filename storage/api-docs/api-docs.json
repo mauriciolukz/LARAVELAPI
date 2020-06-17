@@ -24,7 +24,7 @@
                 "tags": [
                     "API PARA MONEDA"
                 ],
-                "summary": "Mostrar la moneda buscada por id.",
+                "summary": "Mostrar moneda por id.",
                 "description": "Returns project data",
                 "operationId": "App\\Http\\Controllers\\MC40200Controller::getCurrencyById",
                 "parameters": [
@@ -110,6 +110,39 @@
                         }
                     }
                 },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/MC40200"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/MC40200/deleteCurrency/{id}": {
+            "delete": {
+                "tags": [
+                    "API PARA MONEDA"
+                ],
+                "summary": "Eliminar moneda.",
+                "description": "Returns project data",
+                "operationId": "App\\Http\\Controllers\\MC40200Controller::deleteCurrency",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Divisa Id",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "Successful operation",
