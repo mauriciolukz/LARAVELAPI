@@ -79,11 +79,11 @@ class MC40200Controller extends Controller
         $cysymplc = $request->cysymplc;
         $inclspac = json_decode($request->inclspacStatus) ? 1 : 0;
         $decsymbl = $request->decsymblIndex; 
-        $decplcur = $request->decplcurIndex; 
-        $thossym = $request->thossymIndex;
+        $decplcur = $request->decplcurIndex;
+        $thoussym = $request->thoussymIndex;
         $isocurrc = $request->isocurrc;
 
-        $affected = \DB::insert("BEGIN DECLARE @num int EXEC DYNAMICS.dbo.zDP_MC40200SI '${curncyid}', 1001, 33.00000, '${crncydsc}', '${crncysym}', 0, 1, 1, ${cysymplc}, ${inclspac}, 1, 0, 0, ${decsymbl}, ${decplcur}, ${thossym}, 'Dólares', 'Centavos', 'Y', '${isocurrc}', 0, @num OUT SELECT @num END ");
+        $affected = \DB::insert("BEGIN DECLARE @num int EXEC DYNAMICS.dbo.zDP_MC40200SI '${curncyid}', 1001, 33.00000, '${crncydsc}', '${crncysym}', 0, 1, 1, ${cysymplc}, ${inclspac}, 1, 0, 0, ${decsymbl}, ${decplcur}, ${thoussym}, 'Dólares', 'Centavos', 'Y', '${isocurrc}', 0, @num OUT SELECT @num END ");
         //$affected = \DB::insert('insert into users (id, name) values (?, ?)', [1, 'Dayle']);
         
         if ($affected) {
@@ -113,7 +113,7 @@ class MC40200Controller extends Controller
     * )
     */
     public function updateCurrency(Request $request){
-
+        
         $curncyid = $request->curncyidText;
         $crncydsc = $request->crncydsc; 
         $crncysym = $request->crncysym; 
@@ -121,22 +121,26 @@ class MC40200Controller extends Controller
         $inclspac = json_decode($request->inclspacStatus) ? 1 : 0;
         $decsymbl = $request->decsymblIndex; 
         $decplcur = $request->decplcurIndex; 
-        $thossym = $request->thossymIndex;
+        $thoussym  = $request->thoussymIndex;
         $isocurrc = $request->isocurrc;
-
+        
         $affected = \DB::table('MC40200')
               ->where('CURNCYID', $curncyid)
-              ->update(
-                    ['CRNCYDSC', $crncydsc],
-                    ['CRNCYSYM', $crncysym],
-                    ['CYSYMPLC', $cysymplc],
-                    ['INCLSPAC', $inclspac],
-                    ['DECSYMBL', $decsymbl],
-                    ['DECPLCUR', $decplcur],
-                    ['THOSSYM', $thossym],
-                    ['ISOCURRC', $isocurrc]
+              ->update(array(
+                    'CRNCYDSC'=> $crncydsc,
+                    'CRNCYSYM'=> $crncysym,
+                    'CYSYMPLC'=> $cysymplc,
+                    'INCLSPAC'=> $inclspac,
+                    'DECSYMBL'=> $decsymbl,
+                    'DECPLCUR'=> $decplcur,
+                    'THOUSSYM'=> $thoussym,
+                    'ISOCURRC'=> $isocurrc
+                    )
                 );
 
-        return response()->json(['success'=>true, 'message' => $affected], 201);
+        if ($affected) {
+            return response()->json(['success'=>true, 'message' => 'Cambio de moneda registrada.'], 201);
+        }
+        
     }
 }
