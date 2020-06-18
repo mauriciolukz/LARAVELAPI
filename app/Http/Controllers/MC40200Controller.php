@@ -73,7 +73,7 @@ class MC40200Controller extends Controller
 
     public function addCurrency(Request $request){
         
-        $curncyid = $request->curncyidText."$";
+        $curncyid = $request->curncyidText;
         $crncydsc = $request->crncydsc; 
         $crncysym = $request->crncysym; 
         $cysymplc = $request->cysymplc;
@@ -112,7 +112,7 @@ class MC40200Controller extends Controller
     *     )
     * )
     */
-    public function updateCurrency(Request $request){
+    public function updateCurrency(Request $request,$id){
         
         $curncyid = $request->curncyidText;
         $crncydsc = $request->crncydsc; 
@@ -167,10 +167,13 @@ class MC40200Controller extends Controller
     * )
     */
     public function deleteCurrency($id){
-        $affectedRows = MC40200::where('CURNCYID', '=', $id)->delete();
-
-        if ($affected) {
+        
+        //$affectedRows = MC40200::where('CURNCYID', '=', $id)->delete();
+        $affectedRows = MC40200::where('CURNCYID', $id)->delete();
+        //return response()->json(['success'=>true, 'message' => 'Moneda eliminada.'], 202);
+        if ($affectedRows) {
             return response()->json(['success'=>true, 'message' => 'Moneda eliminada.'], 202);
         }
+        
     }
 }
