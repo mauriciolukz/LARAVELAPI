@@ -10,7 +10,7 @@ class MC40200Controller extends Controller
     /**
     * @OA\Get(
     *     path="/MC40200/getCurrencyById/{id}",
-    *     tags={"API PARA MONEDA"},
+    *     tags={"MONEDA"},
     *     summary="Mostrar moneda por id.",
     *       description="Returns project data",
     *       @OA\Parameter(
@@ -51,7 +51,7 @@ class MC40200Controller extends Controller
     /**
     * @OA\Post(
     *     path="/MC40200/addCurrency/{MC40200}",
-    *     tags={"API PARA MONEDA"},
+    *     tags={"MONEDA"},
     *     summary="Agregar moneda.",
     *     description="Returns project data",
     *     @OA\Response(
@@ -96,7 +96,7 @@ class MC40200Controller extends Controller
     /**
     * @OA\Put(
     *     path="/MC40200/updateCurrency/{MC40200}",
-    *     tags={"API PARA MONEDA"},
+    *     tags={"MONEDA"},
     *     summary="Modificar moneda.",
     *     description="Returns project data",
     *     @OA\Response(
@@ -149,7 +149,7 @@ class MC40200Controller extends Controller
     /**
     * @OA\Delete(
     *     path="/MC40200/deleteCurrency/{id}",
-    *     tags={"API PARA MONEDA"},
+    *     tags={"MONEDA"},
     *     summary="Eliminar moneda.",
     *     description="Returns project data",
     *     @OA\Response(

@@ -22,7 +22,7 @@
         "/MC40200/getCurrencyById/{id}": {
             "get": {
                 "tags": [
-                    "API PARA MONEDA"
+                    "MONEDA"
                 ],
                 "summary": "Mostrar moneda por id.",
                 "description": "Returns project data",
@@ -61,7 +61,7 @@
         "/MC40200/addCurrency/{MC40200}": {
             "post": {
                 "tags": [
-                    "API PARA MONEDA"
+                    "MONEDA"
                 ],
                 "summary": "Agregar moneda.",
                 "description": "Returns project data",
@@ -94,7 +94,7 @@
         "/MC40200/updateCurrency/{MC40200}": {
             "put": {
                 "tags": [
-                    "API PARA MONEDA"
+                    "MONEDA"
                 ],
                 "summary": "Modificar moneda.",
                 "description": "Returns project data",
@@ -127,7 +127,7 @@
         "/MC40200/deleteCurrency/{id}": {
             "delete": {
                 "tags": [
-                    "API PARA MONEDA"
+                    "MONEDA"
                 ],
                 "summary": "Eliminar moneda.",
                 "description": "Returns project data",
@@ -153,6 +153,34 @@
                                 }
                             }
                         }
+                    }
+                }
+            }
+        },
+        "/generic/getNextNoteIndex/": {
+            "get": {
+                "tags": [
+                    "GENERICAS"
+                ],
+                "summary": "Obtener ultimo noteindex",
+                "description": "Returns project data",
+                "operationId": "App\\Http\\Controllers\\generiController::getNextNoteIndex",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/MC40200"
+                                }
+                            }
+                        }
+                    },
+                    "default": {
+                        "description": "Ha ocurrido un error."
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
                     }
                 }
             }
