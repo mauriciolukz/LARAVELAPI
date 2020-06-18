@@ -18,13 +18,19 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+//Login,Menu
 Route::post('SY01400/login/', 'SY01400Controller@login');
 Route::post('SY01400/menu/', 'SY01400Controller@menu_side');
 Route::post('SY01400/menu/cards/', 'SY01400Controller@cards');
+
+//Moneda
 Route::get('MC40200/getCurrencyById/{id}', 'MC40200Controller@getCurrencyById');
 Route::post('MC40200/addCurrency/', 'MC40200Controller@addCurrency');
 Route::put('MC40200/updateCurrency/{id}', 'MC40200Controller@updateCurrency');
 Route::delete('MC40200/deleteCurrency/{id}', 'MC40200Controller@deleteCurrency');
+
+//Genericos
+Route::get('generic/getNextNoteIndex/', 'generiController@getNextNoteIndex');
 
 // Route::get('SY01400/getUserByUserId/{userId}', ['middleware' => 'cors','uses' => 'SY01400Controller@getUserByUserId']);
 

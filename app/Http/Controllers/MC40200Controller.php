@@ -45,7 +45,6 @@ class MC40200Controller extends Controller
         if (!$MC40200) {
             return response()->json(['success'=>false, 'message' => 'Moneda no registrada, por favor verifique.'], 404);
         }
-
         return response()->json($MC40200, 200);
     }
 
@@ -82,8 +81,9 @@ class MC40200Controller extends Controller
         $decplcur = $request->decplcurIndex;
         $thoussym = $request->thoussymIndex;
         $isocurrc = $request->isocurrc;
+        $noteindx = $request->noteindx;
 
-        $affected = \DB::insert("BEGIN DECLARE @num int EXEC DYNAMICS.dbo.zDP_MC40200SI '${curncyid}', 1001, 33.00000, '${crncydsc}', '${crncysym}', 0, 1, 1, ${cysymplc}, ${inclspac}, 1, 0, 0, ${decsymbl}, ${decplcur}, ${thoussym}, 'Dólares', 'Centavos', 'Y', '${isocurrc}', 0, @num OUT SELECT @num END ");
+        $affected = \DB::insert("BEGIN DECLARE @num int EXEC DYNAMICS.dbo.zDP_MC40200SI '${curncyid}', 1001, ${noteindx}, '${crncydsc}', '${crncysym}', 0, 1, 1, ${cysymplc}, ${inclspac}, 1, 0, 0, ${decsymbl}, ${decplcur}, ${thoussym}, 'Dólares', 'Centavos', 'Y', '${isocurrc}', 0, @num OUT SELECT @num END ");
         //$affected = \DB::insert('insert into users (id, name) values (?, ?)', [1, 'Dayle']);
         
         if ($affected) {
