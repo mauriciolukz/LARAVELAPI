@@ -21,6 +21,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 //Login
 Route::post('SY01400/login/', 'SY01400Controller@login');
 
+//Probando middleware de ruta, se quito porque se usa global
 // Route::get('SY01400/getUserByUserId/{userId}', ['middleware' => 'cors','uses' => 'SY01400Controller@getUserByUserId']);
 
 Route::group(['middleware' => 'auth.jwt'], function () {
@@ -37,13 +38,4 @@ Route::group(['middleware' => 'auth.jwt'], function () {
     Route::get('generic/getNextNoteIndex/', 'generiController@getNextNoteIndex');
 }); 
 
-
-/* PRUEBA JWT */ 
-//Route::post('login', 'UsersController@login');
-/* Route::group(['middleware' => 'auth.jwt','prefix' => 'auth'
-], function ($router) {
-    Route::post('logout', 'UsersController@logout');
-    Route::post('refresh', 'UsersController@refresh');
-    Route::post('me', 'UsersController@me');
-}); */
 
