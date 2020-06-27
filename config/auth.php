@@ -71,7 +71,7 @@ return [
         'users' => [
             'driver' => 'eloquent',
             //'model' => App\User::class,
-            'model' => App\SY01400::class,
+            'model' => App\Models\SY01400::class,
         ],
 
         // 'users' => [

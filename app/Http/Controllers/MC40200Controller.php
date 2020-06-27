@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\MC40200;
+use App\Models\MC40200;
 use Illuminate\Http\Request;
 
 class MC40200Controller extends Controller
