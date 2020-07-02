@@ -157,6 +157,54 @@
                 }
             }
         },
+        "/MC40200/getCurrencyAllByLimit/{init}/{limit}": {
+            "get": {
+                "tags": [
+                    "MONEDA"
+                ],
+                "summary": "Mostrar moneda por id y rango.",
+                "description": "Returns project data",
+                "operationId": "App\\Http\\Controllers\\MC40200Controller::getCurrencyAllByLimit",
+                "parameters": [
+                    {
+                        "name": "init",
+                        "in": "path",
+                        "description": "Inicio",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "limit",
+                        "in": "path",
+                        "description": "Fin",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/MC40200"
+                                }
+                            }
+                        }
+                    },
+                    "default": {
+                        "description": "Ha ocurrido un error."
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    }
+                }
+            }
+        },
         "/generic/getNextNoteIndex/": {
             "get": {
                 "tags": [

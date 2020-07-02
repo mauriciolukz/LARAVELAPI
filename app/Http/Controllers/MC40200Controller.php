@@ -178,4 +178,56 @@ class MC40200Controller extends Controller
         }
         
     }
+
+
+    /**
+    * @OA\Get(
+    *     path="/MC40200/getCurrencyAllByLimit/{init}/{limit}",
+    *     tags={"MONEDA"},
+    *     summary="Mostrar moneda por id y rango.",
+    *       description="Returns project data",
+    *       @OA\Parameter(
+    *          name="init",
+    *          description="Inicio",
+    *          required=true,
+    *          in="path",
+    *          @OA\Schema(
+    *              type="integer"
+    *          )
+    *      ),
+    *       @OA\Parameter(
+    *          name="limit",
+    *          description="Fin",
+    *          required=true,
+    *          in="path",
+    *          @OA\Schema(
+    *              type="integer"
+    *          )
+    *      ),
+    *     @OA\Response(
+    *         response=200,
+    *         description="Successful operation",
+    *         @OA\JsonContent(ref="#/components/schemas/MC40200")
+    *     ),
+    *     @OA\Response(
+    *         response="default",
+    *         description="Ha ocurrido un error."
+    *     ),
+    *     @OA\Response(
+    *          response=401,
+    *          description="Unauthenticated",
+    *      ),
+    * )
+    */
+
+    public function getCurrencyAllByLimit($init,$limit){
+
+        $MC40200 = MC40200::skip($init)->take($limit)->get();
+
+        if (!$MC40200) {
+            return response()->json(['success'=>false, 'message' => 'Moneda no registrada, por favor verifique.'], 404);
+        }
+        return response()->json($MC40200, 200);
+    }
+
 }

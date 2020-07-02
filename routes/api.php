@@ -30,6 +30,7 @@ Route::group(['middleware' => 'auth.jwt'], function () {
 
     //Moneda
     Route::get('MC40200/getCurrencyById/{id}', 'MC40200Controller@getCurrencyById');
+    Route::get('MC40200/getCurrencyAllByLimit/{init}/{limit}', 'MC40200Controller@getCurrencyAllByLimit');
     Route::post('MC40200/addCurrency/', 'MC40200Controller@addCurrency');
     Route::put('MC40200/updateCurrency/{id}', 'MC40200Controller@updateCurrency');
     Route::delete('MC40200/deleteCurrency/{id}', 'MC40200Controller@deleteCurrency');
