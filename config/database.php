@@ -103,7 +103,7 @@ return [
             'prefix_indexes' => true,
         ],
         'DYNAMICS' => [
-            'driver' => 'sqlsrv',
+            'driver' => 'mysql'/*'sqlsrv'*/,
             'url' => env('DATABASE_URL'),
             'host' => env('DB_HOST_DYNAMICS', 'localhost'),
             'port' => env('DB_PORT_DYNAMICS', '1433'),
