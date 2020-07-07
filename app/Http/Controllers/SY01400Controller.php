@@ -70,6 +70,24 @@ class SY01400Controller extends Controller
     *     tags={"Registro Usuario"},
     *     summary="",
     *       description="Returns project data",
+    *       @OA\Parameter(
+    *          name="email",
+    *          description="email",
+    *          required=true,
+    *          in="path",
+    *          @OA\Schema(
+    *              type="string"
+    *          )
+    *      ),
+    *       @OA\Parameter(
+    *          name="password",
+    *          description="password",
+    *          required=true,
+    *          in="path",
+    *          @OA\Schema(
+    *              type="string"
+    *          )
+    *      ),
     *     @OA\Response(
     *         response=200,
     *         description="Successful operation",
