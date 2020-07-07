@@ -64,6 +64,27 @@ class SY01400Controller extends Controller
         //
     }
 
+    /**
+    * @OA\Post(
+    *     path="/SY01400/login",
+    *     tags={"Registro Usuario"},
+    *     summary="",
+    *       description="Returns project data",
+    *     @OA\Response(
+    *         response=200,
+    *         description="Successful operation",
+    *         @OA\JsonContent(ref="#/components/schemas/MC40200")
+    *     ),
+    *     @OA\Response(
+    *         response="default",
+    *         description="Ha ocurrido un error."
+    *     ),
+    *     @OA\Response(
+    *          response=401,
+    *          description="Unauthenticated",
+    *      ),
+    * )
+    */
     public function login(LoginRequest $request)
     {
         
