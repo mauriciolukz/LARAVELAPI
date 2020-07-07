@@ -213,6 +213,26 @@
                 "summary": "",
                 "description": "Returns project data",
                 "operationId": "App\\Http\\Controllers\\SY01400Controller::login",
+                "parameters": [
+                    {
+                        "name": "email",
+                        "in": "path",
+                        "description": "email",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "password",
+                        "in": "path",
+                        "description": "password",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "Successful operation",
