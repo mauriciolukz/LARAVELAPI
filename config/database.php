@@ -91,7 +91,7 @@ return [
             'prefix_indexes' => true,
         ],*/
         'DUDE' => [
-            'driver' => 'sqlsrv',
+            'driver' => /*'sqlsrv'*/'mysql',
             'url' => env('DATABASE_URL'),
             'host' => env('DB_HOST', 'localhost'),
             'port' => env('DB_PORT', '1433'),
