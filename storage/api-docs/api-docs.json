@@ -14,7 +14,7 @@
     },
     "servers": [
         {
-            "url": "http://rocky-gorge-03730.herokuapp.com/api",
+            "url": "http://localhost:8000/api",
             "description": "API Server"
         }
     ],
@@ -205,7 +205,35 @@
                 }
             }
         },
-        "/SY01400/menu_side": {
+        "/SY01400/login": {
+            "post": {
+                "tags": [
+                    "Registro Usuario"
+                ],
+                "summary": "",
+                "description": "Returns project data",
+                "operationId": "App\\Http\\Controllers\\SY01400Controller::login",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/MC40200"
+                                }
+                            }
+                        }
+                    },
+                    "default": {
+                        "description": "Ha ocurrido un error."
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    }
+                }
+            }
+        },
+        "/SY01400/menu": {
             "post": {
                 "tags": [
                     "Menu"
