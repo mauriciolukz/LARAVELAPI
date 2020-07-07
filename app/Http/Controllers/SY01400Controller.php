@@ -205,7 +205,7 @@ class SY01400Controller extends Controller
                             )
                     )
                 )
-        );
+        ); 
         return response()->json($array);
     }
 
