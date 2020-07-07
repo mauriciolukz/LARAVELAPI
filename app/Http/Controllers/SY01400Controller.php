@@ -92,7 +92,7 @@ class SY01400Controller extends Controller
 
     /**
     * @OA\Post(
-    *     path="/SY01400/menu",
+    *     path="/SY01400/menu_side",
     *     tags={"Menu"},
     *     summary="Mostrar menu lateral.",
     *       description="Returns project data",
@@ -209,9 +209,28 @@ class SY01400Controller extends Controller
         return response()->json($array);
     }
 
+     /**
+    * @OA\Post(
+    *     path="/SY01400/cards",
+    *     tags={"Menu"},
+    *     summary="Mostrar menu fichas.",
+    *       description="Returns project data",
+    *     @OA\Response(
+    *         response=200,
+    *         description="Successful operation",
+    *         @OA\JsonContent(ref="#/components/schemas/MC40200")
+    *     ),
+    *     @OA\Response(
+    *         response="default",
+    *         description="Ha ocurrido un error."
+    *     ),
+    *     @OA\Response(
+    *          response=401,
+    *          description="Unauthenticated",
+    *      ),
+    * )
+    */
     public function cards(Request $request){
-    //public function cards($id_card){
-        //return $request->id_card;
         $array = null;
         $id_card = $request->id_card;
         
