@@ -113,7 +113,7 @@ class SY01400Controller extends Controller
 
     /**
     * @OA\Post(
-    *     path="/SY01400/menu_side",
+    *     path="/SY01400/menu",
     *     tags={"Menu"},
     *     summary="Mostrar menu lateral.",
     *       description="Returns project data",
