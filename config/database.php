@@ -15,7 +15,7 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'DUDE'),
+    'default' => env('DB_CONNECTION', 'DYNAMICS'),
 
     /*
     |--------------------------------------------------------------------------
