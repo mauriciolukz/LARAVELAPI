@@ -90,6 +90,27 @@ class SY01400Controller extends Controller
         return response()->json(auth()->user());
     }
 
+    /**
+    * @OA\Post(
+    *     path="/SY01400/menu",
+    *     tags={"Menu"},
+    *     summary="Mostrar menu lateral.",
+    *       description="Returns project data",
+    *     @OA\Response(
+    *         response=200,
+    *         description="Successful operation",
+    *         @OA\JsonContent(ref="#/components/schemas/MC40200")
+    *     ),
+    *     @OA\Response(
+    *         response="default",
+    *         description="Ha ocurrido un error."
+    *     ),
+    *     @OA\Response(
+    *          response=401,
+    *          description="Unauthenticated",
+    *      ),
+    * )
+    */
     public function menu_side(){
         $array = array("menu_side"=>
             array(
