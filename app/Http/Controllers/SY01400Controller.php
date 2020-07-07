@@ -199,7 +199,7 @@ class SY01400Controller extends Controller
                                 ),
                                 array(
                                 "sub_item_id" => 2,
-                                "item_icon" => "<Home /> ",
+                                "item_icon" => "<Home />",
                                 "item_name" => "Sub"
                                 )
                             )
