@@ -13,7 +13,7 @@ class SY01400 extends Authenticatable implements JWTSubject
 
     //protected $connection = 'DYNAMICS';
 
-    protected $table = 'sy01400';
+    protected $table = 'SY01400';
 
     protected $primaryKey = 'DEX_ROW_ID';
 

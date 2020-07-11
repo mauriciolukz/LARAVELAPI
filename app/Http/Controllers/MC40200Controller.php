@@ -83,14 +83,17 @@ class MC40200Controller extends Controller
         $isocurrc = $request->isocurrc;
         $noteindx = $request->noteindx;
 
-        $maxValue = MC40200::max('CURRNIDX') + 1;
-
-        $affected = \DB::insert("BEGIN DECLARE @num int EXEC DYNAMICS.dbo.zDP_MC40200SI '${curncyid}', ${maxValue}, ${noteindx}, '${crncydsc}', '${crncysym}', 0, 1, 1, ${cysymplc}, ${inclspac}, 1, 0, 0, ${decsymbl}, ${decplcur}, ${thoussym}, 'Dólares', 'Centavos', 'Y', '${isocurrc}', 0, @num OUT SELECT @num END ");
-        //$affected = \DB::insert('insert into users (id, name) values (?, ?)', [1, 'Dayle']);
+        $maxValue = (MC40200::max('CURRNIDX') == null) ? 1000 : MC40200::max('CURRNIDX') + 1;
+        if (env('DB_TYPE') == 'MYSQL') {
+            $affected = \DB::insert('CALL zDP_MC40200SI (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)',array($curncyid,$maxValue, $noteindx, $crncydsc, $crncysym, 0, 1, 1, $cysymplc, $inclspac, 1, 0, 0, $decsymbl, $decplcur, $thoussym, 'Dólares', 'Centavos', 'Y', $isocurrc,0,'@outparam'));
+        }else{
+            $affected = \DB::insert("BEGIN DECLARE @num int EXEC DYNAMICS.dbo.zDP_MC40200SI '${curncyid}', ${maxValue}, ${noteindx}, '${crncydsc}', '${crncysym}', 0, 1, 1, ${cysymplc}, ${inclspac}, 1, 0, 0, ${decsymbl}, ${decplcur}, ${thoussym}, 'Dólares', 'Centavos', 'Y', '${isocurrc}', 0, @num OUT SELECT @num END ");
+        }
         
         if ($affected) {
             return response()->json(['success'=>true, 'message' => 'Moneda registrada.'], 201);
         }
+
     }
 
     /**
