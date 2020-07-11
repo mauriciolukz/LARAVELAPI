@@ -38,8 +38,8 @@ class CreateTableMc40200 extends Migration
             $table->dateTime('DEX_ROW_TS');
             $table->integer('DEX_ROW_ID')->autoIncrement();
         });
-        //DB::connection($this->connection)->unprepared($sql);
-        DB::unprepared(file_get_contents(storage_path('..\database\db\Mysql\Procedures\zDP_MC40200SI.sql')));
+        
+        //DB::unprepared(file_get_contents(storage_path('..\database\db\Mysql\Procedures\zDP_MC40200SI.sql')));
     }
 
     /**
@@ -51,6 +51,6 @@ class CreateTableMc40200 extends Migration
     {
         Schema::dropIfExists('MC40200');
 
-        DB::unprepared('DROP PROCEDURE IF EXISTS zDP_MC40200SI');
+        //DB::unprepared('DROP PROCEDURE IF EXISTS zDP_MC40200SI');
     }
 }
