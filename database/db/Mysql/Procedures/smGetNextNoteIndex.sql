@@ -1,11 +1,12 @@
 delimiter //
+CREATE PROCEDURE `smGetNextNoteIndex`(
+	IN `p_I_sCompanyID` SMALLINT,
+	IN `p_I_iSQLSessionID` INT,
+	OUT `p_O_mNoteIndex` decimal(19,5),
+	OUT `p_O_iErrorState` INT
 
-create procedure smGetNextNoteIndex (
-	p_I_sCompanyID SMALLINT,
-	p_I_iSQLSessionID INT,
-	out p_O_mNoteIndex decimal(19,5), 
-	out p_O_iErrorState INT
-) sp_lbl:
+)
+sp_lbl:
  
 BEGIN  
 	declare v_tTransaction tinyint unsigned;  
@@ -22,7 +23,8 @@ BEGIN
 		START TRANSACTION; 
 	end if; 
 	
-	update   SY01500 SET O_mNoteIndex = NOTEINDX, NOTEINDX = NOTEINDX + 1.0 where CMPANYID = p_I_sCompanyID;
+	update   SY01500 SET  NOTEINDX = NOTEINDX + 1.0 where CMPANYID = p_I_sCompanyID;
+	SET p_O_mNoteIndex = (SELECT NOTEINDX FROM SY01500 where CMPANYID = p_I_sCompanyID);
 	
 	if (Found_rows() <> 1) then  
 		set p_O_iErrorState = 20081;  
@@ -39,10 +41,10 @@ BEGIN
 	if v_tTransaction = 1 then  
 		commit;
 	end if;  
-  
-	leave sp_lbl;
 	
-end;
+    select 0 as retstat,p_O_mNoteIndex as param3,p_O_iErrorState as param4;
+	
+end
 //
 
 delimiter ;
