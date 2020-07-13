@@ -43,7 +43,7 @@ class MC40200Controller extends Controller
         $MC40200 = MC40200::where('CURNCYID', $id)->first();
 
         if (!$MC40200) {
-            return response()->json(['success'=>false, 'message' => 'Moneda no registrada, por favor verifique.'], 404);
+            return response()->json(['success'=>false, 'message' => 'Moneda no registrada, por favor verifique.'], 200);
         }
         return response()->json($MC40200, 200);
     }
