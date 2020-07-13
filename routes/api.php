@@ -25,6 +25,7 @@ Route::post('SY01400/login/', 'SY01400Controller@login');
 // Route::get('SY01400/getUserByUserId/{userId}', ['middleware' => 'cors','uses' => 'SY01400Controller@getUserByUserId']);
 
 Route::group(['middleware' => 'auth.jwt'], function () {
+    //Menu
     Route::post('SY01400/menu/', 'SY01400Controller@menu_side');
     Route::post('SY01400/menu/cards/', 'SY01400Controller@cards');
 
