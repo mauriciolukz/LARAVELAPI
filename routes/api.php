@@ -37,7 +37,7 @@ Route::group(['middleware' => 'auth.jwt'], function () {
     Route::delete('MC40200/deleteCurrency/{id}', 'MC40200Controller@deleteCurrency');
 
     //Genericos
-    Route::get('generic/getNextNoteIndex/', 'generiController@getNextNoteIndex');
+    Route::get('ruta/getNextNoteIndex/', 'generiController@getNextNoteIndex');
 }); 
 
 
