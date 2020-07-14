@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class generiController extends Controller
+class GeneriController extends Controller
 {
     /**
     * @OA\Get(

@@ -20,7 +20,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 //Login
 Route::post('SY01400/login/', 'SY01400Controller@login');
-
+Route::get('generic/getNoteIndex/', 'comController@getNextNoteIndex');
 //Probando middleware de ruta, se quito porque se usa global
 // Route::get('SY01400/getUserByUserId/{userId}', ['middleware' => 'cors','uses' => 'SY01400Controller@getUserByUserId']);
 
@@ -37,7 +37,7 @@ Route::group(['middleware' => 'auth.jwt'], function () {
     Route::delete('MC40200/deleteCurrency/{id}', 'MC40200Controller@deleteCurrency');
 
     //Genericos
-    Route::get('ruta/getNextNoteIndex/', 'generiController@getNextNoteIndex');
+    Route::get('generic/getNextNoteIndex/', 'GeneriController@getNextNoteIndex');
 }); 
 
 
