@@ -38,4 +38,8 @@ class GeneriController extends Controller
             return response()->json($nextNoteIndex, 200);
         }
     }
+
+    public function getHola(){   
+        return response()->json("mensaje", 200);  
+    }
 }
