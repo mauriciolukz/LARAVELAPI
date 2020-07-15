@@ -37,8 +37,7 @@ Route::group(['middleware' => 'auth.jwt'], function () {
 
     //Genericos
     Route::get('generic/getNextNoteIndex/', 'GeneriController@getNextNoteIndex');
-    Route::get('generic/getHola/', 'GeneriController@getHola');
-    Route::get('common/getHola/', 'CommonController@getHola');
+
 }); 
 
 
