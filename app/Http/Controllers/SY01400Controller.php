@@ -328,8 +328,8 @@ class SY01400Controller extends Controller
                                 array(
                                     "sub_item_id" => 2,
                                     "item_icon" => "<Home />",
-                                    "item_name" => "<MultiCurrencyAccess/>",
-                                    "component_name" => "Acceso Multimoneda",
+                                    "item_name" => "Acceso Multimoneda",
+                                    "component_name" => "<MultiCurrencyAccess/>",
                                     "component_title" => "Configuracion de acceso multimoneda"
                                 )
                             )
