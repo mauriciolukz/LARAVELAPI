@@ -22,11 +22,13 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::post('SY01400/login/', 'SY01400Controller@login');
 //Probando middleware de ruta, se quito porque se usa global
 // Route::get('SY01400/getUserByUserId/{userId}', ['middleware' => 'cors','uses' => 'SY01400Controller@getUserByUserId']);
+Route::post('SY01400/menu/', 'SY01400Controller@menu_side');
+Route::post('SY01400/menu/cards/', 'SY01400Controller@cards');
 
 Route::group(['middleware' => 'auth.jwt'], function () {
     //Menu
-    Route::post('SY01400/menu/', 'SY01400Controller@menu_side');
-    Route::post('SY01400/menu/cards/', 'SY01400Controller@cards');
+    //Route::post('SY01400/menu/', 'SY01400Controller@menu_side');
+    //Route::post('SY01400/menu/cards/', 'SY01400Controller@cards');
 
     //Moneda
     Route::get('MC40200/getCurrencyById/{id}', 'MC40200Controller@getCurrencyById');
