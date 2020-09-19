@@ -50,6 +50,22 @@ INSERT INTO `MC40200` (`CURNCYID`, `CURRNIDX`, `NOTEINDX`, `CRNCYDSC`, `CRNCYSYM
 	('C$', 1000, 120.00000, 'Moneda Cordoba', 'C$', 0, 1, 1, 0, 1, 1, 0, 0, 2, 3, 3, 'Dólares', 'Centavos', 'Y', 'ISO', 0, '2020-09-19 13:04:58', 1);
 /*!40000 ALTER TABLE `MC40200` ENABLE KEYS */;
 
+-- Volcando estructura para tabla broxfkshvf8vh6efmkph.MC60100
+CREATE TABLE IF NOT EXISTS `MC60100` (
+  `CMPANYID` smallint(6) NOT NULL,
+  `CURNCYID` char(15) NOT NULL,
+  `INACTIVE` tinyint(4) NOT NULL,
+  `DEX_ROW_ID` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`CMPANYID`,`CURNCYID`),
+  KEY `DEX_ROW_ID` (`DEX_ROW_ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+-- Volcando datos para la tabla broxfkshvf8vh6efmkph.MC60100: ~0 rows (aproximadamente)
+/*!40000 ALTER TABLE `MC60100` DISABLE KEYS */;
+INSERT INTO `MC60100` (`CMPANYID`, `CURNCYID`, `INACTIVE`, `DEX_ROW_ID`) VALUES
+	(1, 'C$', 0, 1);
+/*!40000 ALTER TABLE `MC60100` ENABLE KEYS */;
+
 -- Volcando estructura para procedimiento broxfkshvf8vh6efmkph.smGetNextNoteIndex
 DELIMITER //
 CREATE DEFINER=`udyr0atmn7vmmvqf`@`%` PROCEDURE `smGetNextNoteIndex`(
