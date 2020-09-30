@@ -14,6 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::resource('MC60100', 'MC60100Controller');
+
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });

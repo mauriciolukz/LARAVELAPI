@@ -42,12 +42,13 @@ CREATE TABLE IF NOT EXISTS `MC40200` (
   `DEX_ROW_TS` datetime NOT NULL,
   `DEX_ROW_ID` int(11) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`DEX_ROW_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- Volcando datos para la tabla broxfkshvf8vh6efmkph.MC40200: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `MC40200` DISABLE KEYS */;
 INSERT INTO `MC40200` (`CURNCYID`, `CURRNIDX`, `NOTEINDX`, `CRNCYDSC`, `CRNCYSYM`, `CNYSYMAR_1`, `CNYSYMAR_2`, `CNYSYMAR_3`, `CYSYMPLC`, `INCLSPAC`, `NEGSYMBL`, `NGSMAMPC`, `NEGSMPLC`, `DECSYMBL`, `DECPLCUR`, `THOUSSYM`, `CURTEXT_1`, `CURTEXT_2`, `CURTEXT_3`, `ISOCURRC`, `CURLNGID`, `DEX_ROW_TS`, `DEX_ROW_ID`) VALUES
-	('C$', 1000, 120.00000, 'Moneda Cordoba', 'C$', 0, 1, 1, 0, 1, 1, 0, 0, 2, 3, 3, 'Dólares', 'Centavos', 'Y', 'ISO', 0, '2020-09-19 13:04:58', 1);
+	('C$', 1000, 120.00000, 'Moneda Cordoba', 'C$', 0, 1, 1, 0, 1, 1, 0, 0, 2, 3, 3, 'Dólares', 'Centavos', 'Y', 'ISO', 0, '2020-09-19 13:04:58', 1),
+	('USD', 1001, 121.00000, 'Moneda dolares', 'USD', 0, 1, 1, 0, 1, 1, 0, 0, 2, 3, 3, 'Dólares', 'Centavos', 'Y', 'Dol', 0, '2020-09-30 16:10:15', 2);
 /*!40000 ALTER TABLE `MC40200` ENABLE KEYS */;
 
 -- Volcando estructura para tabla broxfkshvf8vh6efmkph.MC60100
@@ -197,7 +198,7 @@ CREATE TABLE IF NOT EXISTS `SY01500` (
 -- Volcando datos para la tabla broxfkshvf8vh6efmkph.SY01500: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `SY01500` DISABLE KEYS */;
 INSERT INTO `SY01500` (`LSTUSRED`, `CREATDDT`, `MODIFDT`, `CMPANYID`, `CMPNYNAM`, `TAXEXMT1`, `TAXEXMT2`, `TAXREGTN`, `COPTXSCH`, `COSTXSCH`, `LOCATNNM`, `ADRCNTCT`, `ADDRESS1`, `ADDRESS2`, `ADDRESS3`, `CITY`, `COUNTY`, `STATE`, `ZIPCODE`, `PHONE1`, `PHONE2`, `PHONE3`, `FAXNUMBR`, `USESCRTY`, `UDCOSTR1`, `UDCOSTR2`, `CMPCNTRY`, `NOTEINDX`, `PPSFRNUM`, `PPSTAXRT`, `PPSVNDID`, `VATMODE`, `LOCATNID`, `INTERID`, `ACSEGSEP`, `SECOPTS`, `DisplayRegisteredPalette`, `Company_Options`, `Vets100CompanyNumber`, `TYPEOFBUSINESS`, `DUNS_Number`, `SICNUMBER`, `GOVCRPID`, `BRNCHNMBR`, `DFLTTXDTLID`, `PurchasesTaxDetailID`, `CCode`, `IVTRFDOCFMT`, `Offline_User`, `WORKFLOWENABLED`, `CrmCredentialsMethod`, `CrmOrganizationName`, `CrmServiceUrl`, `EnableGLReporting`, `EnableAAReporting`, `UseDateEffectiveTax`, `DateToUse`, `DEX_ROW_ID`) VALUES
-	('sa', '2020-09-19 06:53:33', '2020-09-19 06:53:34', 1, 'HEYDUDE', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, '', '', '', 120.00000, '0', 0, '0', 0, '0', '0', '0', _binary 0x30000000, 0, _binary 0x30000000, '0', '0', '0', '0', '0', '0', '0', '0', '0', 0, '0', 0, 0, '0', '0', 0, 0, 0, 0, 1);
+	('sa', '2020-09-19 06:53:33', '2020-09-19 06:53:34', 1, 'HEYDUDE', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, '', '', '', 121.00000, '0', 0, '0', 0, '0', '0', '0', _binary 0x30000000, 0, _binary 0x30000000, '0', '0', '0', '0', '0', '0', '0', '0', '0', 0, '0', 0, 0, '0', '0', 0, 0, 0, 0, 1);
 /*!40000 ALTER TABLE `SY01500` ENABLE KEYS */;
 
 -- Volcando estructura para procedimiento broxfkshvf8vh6efmkph.zDP_MC40200SI
@@ -231,6 +232,17 @@ BEGIN
 	VALUES              (CURNCYID, CURRNIDX, NOTEINDX, CRNCYDSC, CRNCYSYM, CNYSYMAR_1, CNYSYMAR_2, CNYSYMAR_3, CYSYMPLC, INCLSPAC, NEGSYMBL, NGSMAMPC, NEGSMPLC, DECSYMBL, DECPLCUR, THOUSSYM, CURTEXT_1, CURTEXT_2, CURTEXT_3, ISOCURRC, CURLNGID, NOW());
 	SET DEX_ROW_ID = LAST_INSERT_ID();
 	SELECT DEX_ROW_ID;
+END//
+DELIMITER ;
+
+-- Volcando estructura para procedimiento broxfkshvf8vh6efmkph.zDP_MC60100SS_1
+DELIMITER //
+CREATE DEFINER=`udyr0atmn7vmmvqf`@`%` PROCEDURE `zDP_MC60100SS_1`(
+	IN `CMPANYID` SMALLINT,
+	IN `CURNCYID` CHAR(15)
+)
+BEGIN
+	SELECT CMPANYID, CURNCYID, INACTIVE, DEX_ROW_ID FROM MC60100 WHERE CMPANYID = @CMPANYID AND CURNCYID = @CURNCYID ORDER BY CMPANYID ASC, CURNCYID ASC LIMIT 1;
 END//
 DELIMITER ;
 

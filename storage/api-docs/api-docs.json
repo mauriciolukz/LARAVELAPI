@@ -19,6 +19,34 @@
         }
     ],
     "paths": {
+        "/generic/getNextNoteIndex/": {
+            "get": {
+                "tags": [
+                    "GENERICAS"
+                ],
+                "summary": "Obtener ultimo noteindex",
+                "description": "Returns project data",
+                "operationId": "App\\Http\\Controllers\\GeneriController::getNextNoteIndex",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/MC40200"
+                                }
+                            }
+                        }
+                    },
+                    "default": {
+                        "description": "Ha ocurrido un error."
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    }
+                }
+            }
+        },
         "/MC40200/getCurrencyById/{id}": {
             "get": {
                 "tags": [
@@ -308,34 +336,6 @@
                     }
                 }
             }
-        },
-        "/generic/getNextNoteIndex/": {
-            "get": {
-                "tags": [
-                    "GENERICAS"
-                ],
-                "summary": "Obtener ultimo noteindex",
-                "description": "Returns project data",
-                "operationId": "App\\Http\\Controllers\\generiController::getNextNoteIndex",
-                "responses": {
-                    "200": {
-                        "description": "Successful operation",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/MC40200"
-                                }
-                            }
-                        }
-                    },
-                    "default": {
-                        "description": "Ha ocurrido un error."
-                    },
-                    "401": {
-                        "description": "Unauthenticated"
-                    }
-                }
-            }
         }
     },
     "components": {
@@ -362,6 +362,13 @@
                 "type": "object",
                 "xml": {
                     "name": "MC40200"
+                }
+            },
+            "MC60100": {
+                "title": "MC60100",
+                "description": "Tabla para moneda multifuncional",
+                "xml": {
+                    "name": "MC60100"
                 }
             }
         }
