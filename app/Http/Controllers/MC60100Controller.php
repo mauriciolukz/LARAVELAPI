@@ -15,6 +15,7 @@ class MC60100Controller extends Controller
     
     public function index()
     {
+        echo 'Holaa';
         //
     }
 
@@ -35,9 +36,9 @@ class MC60100Controller extends Controller
      * @param  \App\MC60100  $mC60100
      * @return \Illuminate\Http\Response
      */
-    public function show(MC60100 $mC60100)
+    public function show(MC60100 $mC60100,Request $request)
     {
-        $MC60100 = \DB::select('CALL zDP_MC60100SS_1 (?,?);',array($mC60100->CMPANYID,$mC60100->CURNCYID));
+        $MC60100 = \DB::select('CALL zDP_MC60100SS_1 (?,?);',array($request->CMPANYID,$request->CURNCYID));
         return response()->json($MC60100, 200);
         //
     }

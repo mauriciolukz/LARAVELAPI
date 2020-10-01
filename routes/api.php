@@ -14,18 +14,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::resource('MC60100', 'MC60100Controller');
-
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::resource('MC60100', 'MC60100Controller');
 
 //Login
 Route::post('SY01400/login/', 'SY01400Controller@login');
 //Probando middleware de ruta, se quito porque se usa global
 // Route::get('SY01400/getUserByUserId/{userId}', ['middleware' => 'cors','uses' => 'SY01400Controller@getUserByUserId']);
-//Route::post('SY01400/menu/', 'SY01400Controller@menu_side');
-//Route::post('SY01400/menu/cards/', 'SY01400Controller@cards');
 
 Route::group(['middleware' => 'auth.jwt'], function () {
     //Menu
