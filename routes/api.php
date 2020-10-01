@@ -18,6 +18,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::resource('MC60100', 'MC60100Controller');
+Route::resource('SY01500', 'SY01500Controller');
+
 //Login
 Route::post('SY01400/login/', 'SY01400Controller@login');
 //Probando middleware de ruta, se quito porque se usa global
@@ -39,8 +42,8 @@ Route::group(['middleware' => 'auth.jwt'], function () {
     Route::get('generic/getNextNoteIndex/', 'GeneriController@getNextNoteIndex');
 
     // Controladores de recurso
-    Route::resource('MC60100', 'MC60100Controller');
-    Route::resource('SY01500', 'SY01500Controller');
+    //Route::resource('MC60100', 'MC60100Controller');
+    //Route::resource('SY01500', 'SY01500Controller');
 
 }); 
 

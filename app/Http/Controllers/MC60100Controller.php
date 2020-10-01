@@ -17,7 +17,6 @@ class MC60100Controller extends Controller
     
     public function index()
     {
-        echo 'Holaa';
         //
     }
 
@@ -41,13 +40,17 @@ class MC60100Controller extends Controller
     public function show(MC60100 $mC60100,Request $request)
     {
         $SY01500 = new SY01500();
-
         $data = \DB::select('CALL zDP_MC60100SS_1 (?,?);',array($request->CMPANYID,$request->CURNCYID));
-        $data['SY01500'][] = array('CMPNYNAM' => (new SY01500Controller)->show($SY01500,$request)->original->CMPNYNAM);
+        //$data['SY01500'] = array('CMPNYNAM' => (new SY01500Controller)->show($SY01500,$request)->original->CMPNYNAM);
         //$data[] = array('CMPNYNAM' => (new SY01500Controller)->show($SY01500,$request)->original->CMPNYNAM);
-        
-        return response()->json($data, 200);
-        
+        $result = array(
+            "CMPNYNAM" => (new SY01500Controller)->show($SY01500,$request)->original->CMPNYNAM,
+            "CMPANYID" => $data[0]->CMPANYID,
+            "CURNCYID" => $data[0]->CURNCYID,
+            "INACTIVE" => $data[0]->INACTIVE,
+            "DEX_ROW_ID" => $data[0]->DEX_ROW_ID
+        );
+        return response()->json($result, 200); 
     }
 
     /**
