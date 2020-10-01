@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\SY01500;
+use App\Models\SY01500;
 use Illuminate\Http\Request;
 
 class SY01500Controller extends Controller
-{
+{ 
     /**
      * Display a listing of the resource.
      *
@@ -44,9 +44,10 @@ class SY01500Controller extends Controller
      * @param  \App\SY01500  $sY01500
      * @return \Illuminate\Http\Response
      */
-    public function show(SY01500 $sY01500)
+    public function show(SY01500 $sY01500,Request $request)
     {
-        //
+        $SY01500 = SY01500::where('CMPANYID', $request->CMPANYID)->first();
+        return response()->json($SY01500, 200);
     }
 
     /**

@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\MC60100;
+use App\Models\SY01500;
 use Illuminate\Http\Request;
+use App\Http\Controllers\SY01500Controller;
 
 class MC60100Controller extends Controller
 {
@@ -38,9 +40,14 @@ class MC60100Controller extends Controller
      */
     public function show(MC60100 $mC60100,Request $request)
     {
+        $SY01500 = new SY01500();
+
         $data = \DB::select('CALL zDP_MC60100SS_1 (?,?);',array($request->CMPANYID,$request->CURNCYID));
+        $data['SY01500'][] = array('CMPNYNAM' => (new SY01500Controller)->show($SY01500,$request)->original->CMPNYNAM);
+        //$data[] = array('CMPNYNAM' => (new SY01500Controller)->show($SY01500,$request)->original->CMPNYNAM);
+        
         return response()->json($data, 200);
-        //
+        
     }
 
     /**
