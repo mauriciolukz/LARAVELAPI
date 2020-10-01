@@ -38,8 +38,8 @@ class MC60100Controller extends Controller
      */
     public function show(MC60100 $mC60100,Request $request)
     {
-        $MC60100 = \DB::select('CALL zDP_MC60100SS_1 (?,?);',array($request->CMPANYID,$request->CURNCYID));
-        return response()->json($MC60100, 200);
+        $data = \DB::select('CALL zDP_MC60100SS_1 (?,?);',array($request->CMPANYID,$request->CURNCYID));
+        return response()->json($data, 200);
         //
     }
 
