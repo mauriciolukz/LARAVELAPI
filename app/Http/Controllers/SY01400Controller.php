@@ -73,14 +73,14 @@ class SY01400Controller extends Controller
     *     @OA\Response(
     *         response=200,
     *         description="Successful operation",
-    *         @OA\JsonContent(ref="#/components/schemas/MC40200")
+    *         @OA\JsonContent(ref="#/components/schemas/SY01400")
     *     ),
     *     @OA\RequestBody(
     *         description="Validar usuario",
     *         required=true,
     *         @OA\MediaType(
     *           mediaType="application/json",
-    *           @OA\Schema(ref="#/components/schemas/MC40200")
+    *           @OA\Schema(ref="#/components/schemas/SY01400")
     *         )
     *     )
     * )

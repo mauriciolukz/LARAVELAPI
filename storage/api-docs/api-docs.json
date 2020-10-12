@@ -277,7 +277,7 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "#/components/schemas/MC40200"
+                                "$ref": "#/components/schemas/SY01400"
                             }
                         }
                     }
@@ -288,17 +288,12 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/MC40200"
+                                    "$ref": "#/components/schemas/SY01400"
                                 }
                             }
                         }
                     }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
+                }
             }
         },
         "/SY01400/menu": {
@@ -400,11 +395,36 @@
                 "xml": {
                     "name": "MC60100"
                 }
+            },
+            "SY01400": {
+                "title": "SY01400",
+                "description": "Tabla para usuarios",
+                "properties": {
+                    "email": {
+                        "title": "CURNCYID",
+                        "description": "Id de moneda",
+                        "type": "string",
+                        "format": "string",
+                        "example": 100
+                    },
+                    "password": {
+                        "title": "CURRNIDX",
+                        "description": "Indice de moneda",
+                        "type": "string",
+                        "format": "string",
+                        "example": 200
+                    }
+                },
+                "type": "object",
+                "xml": {
+                    "name": "SY01400"
+                }
             }
         },
         "securitySchemes": {
             "bearerAuth": {
                 "type": "http",
+                "in": "header",
                 "scheme": "bearer"
             }
         }
