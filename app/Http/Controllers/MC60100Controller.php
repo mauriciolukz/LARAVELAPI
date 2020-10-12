@@ -49,8 +49,8 @@ class MC60100Controller extends Controller
             "CMPANYID"      => $SY01500->CMPANYID,
             "CURNCYID"      => $request->CURNCYID,
             "ACCESS"        => sizeof($MC60100),
-            "INACTIVE"      => $MC60100[0]->INACTIVE,
-            "DEX_ROW_ID"    => $MC60100[0]->DEX_ROW_ID
+            "INACTIVE"      => ($MC60100 == null) ? 0 : $MC60100[0]->INACTIVE,
+            "DEX_ROW_ID"    => ($MC60100 == null) ? 0 : $MC60100[0]->DEX_ROW_ID
         );
         return response()->json($result, 200); 
     }
