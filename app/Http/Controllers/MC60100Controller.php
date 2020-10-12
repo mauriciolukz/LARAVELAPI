@@ -39,16 +39,18 @@ class MC60100Controller extends Controller
      */
     public function show(MC60100 $mC60100,Request $request)
     {
-        $SY01500 = new SY01500();
-        $data = \DB::select('CALL zDP_MC60100SS_1 (?,?);',array($request->CMPANYID,$request->CURNCYID));
-        //$data['SY01500'] = array('CMPNYNAM' => (new SY01500Controller)->show($SY01500,$request)->original->CMPNYNAM);
-        //$data[] = array('CMPNYNAM' => (new SY01500Controller)->show($SY01500,$request)->original->CMPNYNAM);
+        // Acceso de la moneda
+        $MC60100 = \DB::select('CALL zDP_MC60100SS_1 (?,?);',array($request->CMPANYID,$request->CURNCYID));
+        // Informacion de compañia
+        $SY01500 = (new SY01500Controller)->show(new SY01500(),$request)->original;
+       
         $result = array(
-            "CMPNYNAM" => (new SY01500Controller)->show($SY01500,$request)->original->CMPNYNAM,
-            "CMPANYID" => $data[0]->CMPANYID,
-            "CURNCYID" => $data[0]->CURNCYID,
-            "INACTIVE" => $data[0]->INACTIVE,
-            "DEX_ROW_ID" => $data[0]->DEX_ROW_ID
+            "CMPNYNAM"      => $SY01500->CMPNYNAM,
+            "CMPANYID"      => $SY01500->CMPANYID,
+            "CURNCYID"      => $request->CURNCYID,
+            "ACCESS"        => sizeof($MC60100),
+            "INACTIVE"      => $MC60100[0]->INACTIVE,
+            "DEX_ROW_ID"    => $MC60100[0]->DEX_ROW_ID
         );
         return response()->json($result, 200); 
     }
