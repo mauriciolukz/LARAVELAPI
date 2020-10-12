@@ -8,6 +8,7 @@ class GeneriController extends Controller
 {
     /**
     * @OA\Get(
+    *     security={{"bearerAuth":{}}},
     *     path="/generic/getNextNoteIndex/",
     *     tags={"GENERICAS"},
     *     summary="Obtener ultimo noteindex",

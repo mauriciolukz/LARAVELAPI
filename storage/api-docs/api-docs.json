@@ -44,7 +44,12 @@
                     "401": {
                         "description": "Unauthenticated"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             }
         },
         "/MC40200/getCurrencyById/{id}": {
@@ -83,7 +88,12 @@
                     "401": {
                         "description": "Unauthenticated"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             }
         },
         "/MC40200/addCurrency/{MC40200}": {
@@ -116,7 +126,12 @@
                             }
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             }
         },
         "/MC40200/updateCurrency/{MC40200}": {
@@ -149,7 +164,12 @@
                             }
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             }
         },
         "/MC40200/deleteCurrency/{id}": {
@@ -182,7 +202,12 @@
                             }
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             }
         },
         "/MC40200/getCurrencyAllByLimit/{init}/{limit}": {
@@ -230,37 +255,33 @@
                     "401": {
                         "description": "Unauthenticated"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             }
         },
-        "/SY01400/login": {
+        "/SY01400/login/": {
             "post": {
                 "tags": [
-                    "Registro Usuario"
+                    "Login"
                 ],
-                "summary": "",
+                "summary": "Validar usuario",
                 "description": "Returns project data",
                 "operationId": "App\\Http\\Controllers\\SY01400Controller::login",
-                "parameters": [
-                    {
-                        "name": "email",
-                        "in": "path",
-                        "description": "email",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "password",
-                        "in": "path",
-                        "description": "password",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
+                "requestBody": {
+                    "description": "Validar usuario",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/MC40200"
+                            }
                         }
                     }
-                ],
+                },
                 "responses": {
                     "200": {
                         "description": "Successful operation",
@@ -271,14 +292,13 @@
                                 }
                             }
                         }
-                    },
-                    "default": {
-                        "description": "Ha ocurrido un error."
-                    },
-                    "401": {
-                        "description": "Unauthenticated"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             }
         },
         "/SY01400/menu": {
@@ -306,7 +326,12 @@
                     "401": {
                         "description": "Unauthenticated"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             }
         },
         "/SY01400/cards": {
@@ -334,7 +359,12 @@
                     "401": {
                         "description": "Unauthenticated"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             }
         }
     },
@@ -370,6 +400,12 @@
                 "xml": {
                     "name": "MC60100"
                 }
+            }
+        },
+        "securitySchemes": {
+            "bearerAuth": {
+                "type": "http",
+                "scheme": "bearer"
             }
         }
     },

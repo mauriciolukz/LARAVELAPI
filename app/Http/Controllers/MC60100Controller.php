@@ -7,6 +7,7 @@ use App\Models\SY01500;
 use Illuminate\Http\Request;
 use App\Http\Controllers\SY01500Controller;
 
+
 class MC60100Controller extends Controller
 {
     /**

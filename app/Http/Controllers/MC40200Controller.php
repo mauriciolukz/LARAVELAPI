@@ -9,6 +9,7 @@ class MC40200Controller extends Controller
 {
     /**
     * @OA\Get(
+    *     security={{"bearerAuth":{}}},
     *     path="/MC40200/getCurrencyById/{id}",
     *     tags={"MONEDA"},
     *     summary="Mostrar moneda por id.",
@@ -50,6 +51,7 @@ class MC40200Controller extends Controller
 
     /**
     * @OA\Post(
+    *     security={{"bearerAuth":{}}},
     *     path="/MC40200/addCurrency/{MC40200}",
     *     tags={"MONEDA"},
     *     summary="Agregar moneda.",
@@ -98,6 +100,7 @@ class MC40200Controller extends Controller
 
     /**
     * @OA\Put(
+    *     security={{"bearerAuth":{}}},
     *     path="/MC40200/updateCurrency/{MC40200}",
     *     tags={"MONEDA"},
     *     summary="Modificar moneda.",
@@ -151,6 +154,7 @@ class MC40200Controller extends Controller
 
     /**
     * @OA\Delete(
+    *     security={{"bearerAuth":{}}},
     *     path="/MC40200/deleteCurrency/{id}",
     *     tags={"MONEDA"},
     *     summary="Eliminar moneda.",
@@ -185,6 +189,7 @@ class MC40200Controller extends Controller
 
     /**
     * @OA\Get(
+    *     security={{"bearerAuth":{}}},
     *     path="/MC40200/getCurrencyAllByLimit/{init}/{limit}",
     *     tags={"MONEDA"},
     *     summary="Mostrar moneda por id y rango.",

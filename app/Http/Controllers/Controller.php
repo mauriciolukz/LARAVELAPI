@@ -33,6 +33,12 @@ class Controller extends BaseController
      *     name="API LARAVEL",
      *     description="API Endpoints of Projects"
      * )
+     * 
+     * @OA\SecurityScheme(
+     *    securityScheme="bearerAuth",
+     *    type="http",
+     *    scheme="bearer"
+     *  )
      */
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
